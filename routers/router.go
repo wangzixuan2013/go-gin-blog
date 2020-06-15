@@ -2,15 +2,22 @@ package routers
 
 import (
 	"gin-blog/middleware/jwt"
+	"gin-blog/pkg/logging"
+	"gin-blog/pkg/setting"
 	v1 "gin-blog/routers/v1"
 	"github.com/gin-gonic/gin"
-
-	"gin-blog/pkg/setting"
+	"os"
 
 	"gin-blog/routers/api"
 )
 
 func InitRouter() *gin.Engine {
+
+	gin.DisableConsoleColor()//保存到文件不需要颜色
+	//handleFile,_ := os.OpenFile(logging.AccessLog(),os.O_APPEND|os.O_CREATE|os.O_WRONLY,0644)
+	file, _ := os.Create(logging.AccessLog())
+	gin.DefaultWriter = file
+
 	r := gin.New()
 
 	r.Use(gin.Logger())

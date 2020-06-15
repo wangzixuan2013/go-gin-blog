@@ -124,3 +124,53 @@
 2020/06/11 20:44:26 start 42
 2020/06/11 20:44:27 start 43
 2020/06/11 20:44:28 start 44
+
+[33m[2020-06-13 17:05:34][0m [35m[info] replacing callback `gorm:update_time_stamp` from /Users/gavin.wang/go/src/gin-blog/models/models.go:42[0m [31;1m [0m
+
+[33m[2020-06-13 17:05:34][0m [35m[info] replacing callback `gorm:update_time_stamp` from /Users/gavin.wang/go/src/gin-blog/models/models.go:43[0m [31;1m [0m
+
+[33m[2020-06-13 17:05:34][0m [35m[info] replacing callback `gorm:delete` from /Users/gavin.wang/go/src/gin-blog/models/models.go:44[0m [31;1m [0m
+2020/06/13 17:05:34 1m0s
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /auth                     --> gin-blog/routers/api.GetAuth (3 handlers)
+[GIN-debug] GET    /test                     --> gin-blog/routers.InitRouter.func1 (3 handlers)
+[GIN-debug] GET    /api/v1/tags              --> gin-blog/routers/v1.GetTags (4 handlers)
+[GIN-debug] POST   /api/v1/tags              --> gin-blog/routers/v1.AddTag (4 handlers)
+[GIN-debug] PUT    /api/v1/tags/:id          --> gin-blog/routers/v1.EditTag (4 handlers)
+[GIN-debug] DELETE /api/v1/tags/:id          --> gin-blog/routers/v1.DeleteTag (4 handlers)
+[GIN-debug] GET    /api/v1/articles          --> gin-blog/routers/v1.GetArticles (4 handlers)
+[GIN-debug] GET    /api/v1/articles/:id      --> gin-blog/routers/v1.GetArticle (4 handlers)
+[GIN-debug] POST   /api/v1/articles          --> gin-blog/routers/v1.AddArticle (4 handlers)
+[GIN-debug] PUT    /api/v1/articles/:id      --> gin-blog/routers/v1.EditArticle (4 handlers)
+[GIN-debug] DELETE /api/v1/articles/:id      --> gin-blog/routers/v1.DeleteArticle (4 handlers)
+[GIN] 2020/06/13 - 17:05:43 | 200 |   45.458755ms |  192.168.20.216 | GET      "/auth?username=test&password=test123456"
+[GIN] 2020/06/13 - 17:05:44 | 200 |     889.278µs |  192.168.20.216 | GET      "/auth?username=test&password=test123456"
+[GIN] 2020/06/13 - 17:05:57 | 200 |     825.423µs |  192.168.20.216 | GET      "/auth?username=test&password=test123456"
+[GIN] 2020/06/13 - 17:05:57 | 200 |      914.79µs |  192.168.20.216 | GET      "/auth?username=test&password=test123456"
+[GIN] 2020/06/13 - 17:05:58 | 200 |     942.016µs |  192.168.20.216 | GET      "/auth?username=test&password=test123456"
+
+[33m[2020-06-13 17:09:35][0m [35m[info] replacing callback `gorm:update_time_stamp` from /Users/gavin.wang/go/src/gin-blog/models/models.go:42[0m [31;1m [0m
+
+[33m[2020-06-13 17:09:35][0m [35m[info] replacing callback `gorm:update_time_stamp` from /Users/gavin.wang/go/src/gin-blog/models/models.go:43[0m [31;1m [0m
+
+[33m[2020-06-13 17:09:35][0m [35m[info] replacing callback `gorm:delete` from /Users/gavin.wang/go/src/gin-blog/models/models.go:44[0m [31;1m [0m
+2020/06/13 17:09:35 1m0s
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /auth                     --> gin-blog/routers/api.GetAuth (3 handlers)
+[GIN-debug] GET    /test                     --> gin-blog/routers.InitRouter.func1 (3 handlers)
+[GIN-debug] GET    /api/v1/tags              --> gin-blog/routers/v1.GetTags (4 handlers)
+[GIN-debug] POST   /api/v1/tags              --> gin-blog/routers/v1.AddTag (4 handlers)
+[GIN-debug] PUT    /api/v1/tags/:id          --> gin-blog/routers/v1.EditTag (4 handlers)
+[GIN-debug] DELETE /api/v1/tags/:id          --> gin-blog/routers/v1.DeleteTag (4 handlers)
+[GIN-debug] GET    /api/v1/articles          --> gin-blog/routers/v1.GetArticles (4 handlers)
+[GIN-debug] GET    /api/v1/articles/:id      --> gin-blog/routers/v1.GetArticle (4 handlers)
+[GIN-debug] POST   /api/v1/articles          --> gin-blog/routers/v1.AddArticle (4 handlers)
+[GIN-debug] PUT    /api/v1/articles/:id      --> gin-blog/routers/v1.EditArticle (4 handlers)
+[GIN-debug] DELETE /api/v1/articles/:id      --> gin-blog/routers/v1.DeleteArticle (4 handlers)
+[GIN] 2020/06/13 - 17:09:45 | 200 |   45.470872ms |  192.168.20.216 | GET      "/auth?username=test&password=test123456"

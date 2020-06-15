@@ -1,0 +1,5 @@
+[INFO][main.go:29]2020/06/15 11:07:42 [Actual pid is %d 90225]
+[INFO][main.go:29]2020/06/15 11:11:17 [Actual pid is %d 92847]
+[INFO][auth.go:31]2020/06/15 11:11:21 [test]
+[INFO][auth.go:31]2020/06/15 11:11:25 [test]
+[INFO][auth.go:31]2020/06/15 11:11:26 [test]

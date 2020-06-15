@@ -34,6 +34,16 @@ func getLogFileFullPath() string  {
 	return fmt.Sprintf("%s%s",prefixPath,suffixPath)
 }
 
+func getAccessLog() string{
+	dir, _ := os.Getwd()
+	prefixPath := dir + "/" + setting.AppSetting.RuntimeRootPath + "access_log/"
+	suffixPath := fmt.Sprintf("%s%s.%s",
+		setting.AppSetting.LogSaveName,
+		time.Now().Format(setting.AppSetting.TimeFormat),
+		setting.AppSetting.LogFileExt)
+	return fmt.Sprintf("%s%s",prefixPath,suffixPath)
+}
+
 func openLogFile(filePath string) *os.File  {
 	_, err := os.Stat(filePath)
 	switch  {
