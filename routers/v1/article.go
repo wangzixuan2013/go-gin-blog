@@ -103,6 +103,8 @@ func AddArticle(c *gin.Context) {
 	content := c.Query("content")
 	createdBy := c.Query("created_by")
 	state := com.StrTo(c.DefaultQuery("state", "0")).MustInt()
+	coverImageUrl := c.Query("cover_image_url")
+	logging.Info(coverImageUrl)
 
 	valid := validation.Validation{}
 	valid.Min(tagId, 1, "tag_id").Message("标签ID必须大于0")
@@ -122,6 +124,7 @@ func AddArticle(c *gin.Context) {
 			data["content"] = content
 			data["created_by"] = createdBy
 			data["state"] = state
+			data["cover_image_url"] = coverImageUrl
 
 			models.AddArticle(data)
 			code = e.SUCCESS

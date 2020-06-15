@@ -4,8 +4,10 @@ import (
 	"gin-blog/middleware/jwt"
 	"gin-blog/pkg/logging"
 	"gin-blog/pkg/setting"
+	"gin-blog/pkg/upload"
 	v1 "gin-blog/routers/v1"
 	"github.com/gin-gonic/gin"
+	"net/http"
 	"os"
 
 	"gin-blog/routers/api"
@@ -28,7 +30,14 @@ func InitRouter() *gin.Engine {
 
 	//token 验证中间件
 
+	//file访问服务
+
+	r.StaticFS("/upload/images", http.Dir(upload.GetImageFullPath()))
+
+
 	r.GET("/auth", api.GetAuth)
+
+	r.POST("/upload", api.UploadImage)
 
 	r.GET("/test", func(c *gin.Context) {
 		c.JSON(200, gin.H{
