@@ -33,3 +33,6 @@
 [INFO][article.go:137]2020/06/15 14:42:22 [err.key: %s, err.message: %s created_by 创建人不能为空]
 [INFO][article.go:107]2020/06/15 14:42:50 []
 [INFO][article.go:107]2020/06/15 14:45:08 [upload/images/abf14ffd60451bc74be025d0adb77cae.jpg]
+[INFO][main.go:29]2020/06/15 15:18:56 [Actual pid is %d 69496]
+[ERROR][jwt.go:38]2020/06/15 15:20:16 [Token鉴权失败]
+[INFO][auth.go:31]2020/06/15 15:20:26 [test]

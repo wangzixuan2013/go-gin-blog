@@ -1,6 +1,7 @@
 package v1
 
 import (
+	"gin-blog/pkg/app"
 	"gin-blog/pkg/e"
 	"gin-blog/pkg/setting"
 	"gin-blog/pkg/util"
@@ -213,30 +214,33 @@ func EditArticle(c *gin.Context) {
 
 //删除文章
 func DeleteArticle(c *gin.Context) {
+
+	appG := app.Gin{C: c}
+
 	id := com.StrTo(c.Param("id")).MustInt()
 
 	valid := validation.Validation{}
 	valid.Min(id, 1, "id").Message("ID必须大于0")
 
-	code := e.INVALID_PARAMS
-	if ! valid.HasErrors() {
-		if models.ExistArticleByID(id) {
-			models.DeleteArticle(id)
-			code = e.SUCCESS
-		} else {
-			code = e.ERROR_NOT_EXIST_ARTICLE
-		}
-	} else {
+	if valid.HasErrors(){
 		for _, err := range valid.Errors {
-			//log.Printf("err.key: %s, err.message: %s", err.Key, err.Message)
 			logging.Info("err.key: %s, err.message: %s", err.Key, err.Message)
 		}
-
+		appG.Response(http.StatusBadRequest,e.INVALID_PARAMS,make(map[string]string))
+		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{
-		"code" : code,
-		"msg" : e.GetMsg(code),
-		"data" : make(map[string]string),
-	})
+	if !models.ExistArticleByID(id) {
+		appG.Response(http.StatusInternalServerError,e.ERROR_NOT_EXIST_ARTICLE,make(map[string]string))
+		return
+	}
+	models.DeleteArticle(id)
+	code := e.SUCCESS
+
+	appG.Response(http.StatusOK,code,make(map[string]string))
+	//c.JSON(http.StatusOK, gin.H{
+	//	"code" : code,
+	//	"msg" : e.GetMsg(code),
+	//	"data" : make(map[string]string),
+	//})
 }
