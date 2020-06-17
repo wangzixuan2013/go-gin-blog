@@ -1,0 +1,27 @@
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /upload/images/*filepath  --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /upload/images/*filepath  --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /auth                     --> gin-blog/routers/api.GetAuth (3 handlers)
+[GIN-debug] POST   /upload                   --> gin-blog/routers/api.UploadImage (3 handlers)
+[GIN-debug] GET    /test                     --> gin-blog/routers.InitRouter.func1 (3 handlers)
+[GIN-debug] GET    /api/v1/tags              --> gin-blog/routers/v1.GetTags (4 handlers)
+[GIN-debug] POST   /api/v1/tags              --> gin-blog/routers/v1.AddTag (4 handlers)
+[GIN-debug] PUT    /api/v1/tags/:id          --> gin-blog/routers/v1.EditTag (4 handlers)
+[GIN-debug] DELETE /api/v1/tags/:id          --> gin-blog/routers/v1.DeleteTag (4 handlers)
+[GIN-debug] GET    /api/v1/articles          --> gin-blog/routers/v1.GetArticles (4 handlers)
+[GIN-debug] GET    /api/v1/articles/:id      --> gin-blog/routers/v1.GetArticle (4 handlers)
+[GIN-debug] POST   /api/v1/articles          --> gin-blog/routers/v1.AddArticle (4 handlers)
+[GIN-debug] PUT    /api/v1/articles/:id      --> gin-blog/routers/v1.EditArticle (4 handlers)
+[GIN-debug] DELETE /api/v1/articles/:id      --> gin-blog/routers/v1.DeleteArticle (4 handlers)
+[GIN] 2020/06/16 - 20:02:46 | 200 |   86.838652ms |       127.0.0.1 | GET      "/auth?username=test&password=test123456"
+[GIN] 2020/06/16 - 20:02:46 | 200 |     1.09228ms |       127.0.0.1 | GET      "/auth?username=test&password=test123456"
+[GIN] 2020/06/16 - 20:02:47 | 200 |     757.757µs |       127.0.0.1 | GET      "/auth?username=test&password=test123456"
+[GIN] 2020/06/17 - 11:25:28 | 200 |  131.412003ms |       127.0.0.1 | GET      "/auth?username=test&password=test123456"
+[GIN] 2020/06/17 - 11:25:29 | 200 |    1.000611ms |       127.0.0.1 | GET      "/auth?username=test&password=test123456"
+[GIN] 2020/06/17 - 11:25:29 | 200 |     808.263µs |       127.0.0.1 | GET      "/auth?username=test&password=test123456"
+[GIN] 2020/06/17 - 11:25:36 | 200 |    4.400401ms |       127.0.0.1 | GET      "/auth?username=test&password=test123456"
+[GIN] 2020/06/17 - 11:25:49 | 200 |   42.853864ms |       127.0.0.1 | GET      "/auth?username=test&password=test123456"
+[GIN] 2020/06/17 - 11:30:15 | 200 |    1.169803ms |       127.0.0.1 | GET      "/auth?username=test&password=test123456"

@@ -174,3 +174,12 @@
 [GIN-debug] PUT    /api/v1/articles/:id      --> gin-blog/routers/v1.EditArticle (4 handlers)
 [GIN-debug] DELETE /api/v1/articles/:id      --> gin-blog/routers/v1.DeleteArticle (4 handlers)
 [GIN] 2020/06/13 - 17:09:45 | 200 |   45.470872ms |  192.168.20.216 | GET      "/auth?username=test&password=test123456"
+
+[33m[2020-06-16 20:02:41][0m [35m[info] replacing callback `gorm:update_time_stamp` from /Users/gavin.wang/go/src/gin-blog/models/models.go:42[0m [31;1m [0m
+
+[33m[2020-06-16 20:02:41][0m [35m[info] replacing callback `gorm:update_time_stamp` from /Users/gavin.wang/go/src/gin-blog/models/models.go:43[0m [31;1m [0m
+
+[33m[2020-06-16 20:02:41][0m [35m[info] replacing callback `gorm:delete` from /Users/gavin.wang/go/src/gin-blog/models/models.go:44[0m [31;1m [0m
+2020/06/16 20:02:41 1m0s
+[mysql] 2020/06/17 11:25:27 packets.go:123: closing bad idle connection: connection reset by peer
+[mysql] 2020/06/17 11:25:27 connection.go:173: driver: bad connection

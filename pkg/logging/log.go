@@ -1,11 +1,11 @@
 package logging
 
 import (
+	"fmt"
 	"log"
 	"os"
-	"runtime"
 	"path/filepath"
-	"fmt"
+	"runtime"
 )
 
 type Level int
@@ -19,6 +19,8 @@ var (
 	logger *log.Logger
 	logPrefix = ""
 	levelFlags = []string{"DEBUG", "INFO", "WARN", "ERROR", "FATAL"}
+
+	//fileName = ""
 )
 
 const (
@@ -53,6 +55,7 @@ func Debug(v ...interface{}) {
 }
 
 func Info(v ...interface{}) {
+
 	setPrefix(INFO)
 
 	logger.Println(v)
@@ -74,6 +77,21 @@ func Fatal(v ...interface{}) {
 }
 
 func setPrefix(level Level) {
+	var err error
+	filePath := getLogFilePath()
+	fileName := getLogFileName()
+	fileFullPath := filePath + fileName
+	//每天一个log
+	_, err = os.Stat(fileFullPath)
+	if err != nil{
+		filePath := getLogFilePath()
+		fileName := getLogFileName()
+		F, err = openLogFile(fileName,filePath)
+		if err != nil {
+			log.Fatalln(err)
+		}
+		logger = log.New(F, DefaultPrefix, log.LstdFlags)
+	}
 	_, file, line, ok := runtime.Caller(DefaultCallerDepth)
 	if ok {
 		logPrefix = fmt.Sprintf("[%s][%s:%d]", levelFlags[level], filepath.Base(file), line)

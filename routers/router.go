@@ -5,22 +5,35 @@ import (
 	"gin-blog/pkg/logging"
 	"gin-blog/pkg/setting"
 	"gin-blog/pkg/upload"
+	"gin-blog/routers/api"
 	v1 "gin-blog/routers/v1"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"os"
-
-	"gin-blog/routers/api"
 )
 
 func InitRouter() *gin.Engine {
 
 	gin.DisableConsoleColor()//保存到文件不需要颜色
-	//handleFile,_ := os.OpenFile(logging.AccessLog(),os.O_APPEND|os.O_CREATE|os.O_WRONLY,0644)
-	file, _ := os.Create(logging.AccessLog())
-	gin.DefaultWriter = file
 
 	r := gin.New()
+	//handleFile,_ := os.OpenFile(logging.AccessLog(),os.O_APPEND|os.O_CREATE|os.O_WRONLY,0644)
+	//file, _ := os.Create(logging.AccessLog())
+	//gin.DefaultWriter = file
+	//
+	//r.Use(gin.LoggerWithFormatter(func(param gin.LogFormatterParams) string {
+	//	//定制日志格式
+	//	return fmt.Sprintf("%s - [%s] \"%s %s %s %d %s \"%s\" %s\"\n",
+	//		param.ClientIP,
+	//		param.TimeStamp.Format(time.RFC1123),
+	//		param.Method,
+	//		param.Path,
+	//		param.Request.Proto,
+	//		param.StatusCode,
+	//		param.Latency,
+	//		param.Request.UserAgent(),
+	//		param.ErrorMessage,
+	//	)
+	//}))
 
 	r.Use(gin.Logger())
 
@@ -40,6 +53,7 @@ func InitRouter() *gin.Engine {
 	r.POST("/upload", api.UploadImage)
 
 	r.GET("/test", func(c *gin.Context) {
+		logging.Info(222222)
 		c.JSON(200, gin.H{
 			"message": "test",
 		})

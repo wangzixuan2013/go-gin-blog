@@ -1,0 +1,20 @@
+[GIN-debug] GET    /upload/images/*filepath  --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] HEAD   /upload/images/*filepath  --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] GET    /auth                     --> gin-blog/routers/api.GetAuth (4 handlers)
+[GIN-debug] POST   /upload                   --> gin-blog/routers/api.UploadImage (4 handlers)
+[GIN-debug] GET    /test                     --> gin-blog/routers.InitRouter.func2 (4 handlers)
+[GIN-debug] GET    /api/v1/tags              --> gin-blog/routers/v1.GetTags (5 handlers)
+[GIN-debug] POST   /api/v1/tags              --> gin-blog/routers/v1.AddTag (5 handlers)
+[GIN-debug] PUT    /api/v1/tags/:id          --> gin-blog/routers/v1.EditTag (5 handlers)
+[GIN-debug] DELETE /api/v1/tags/:id          --> gin-blog/routers/v1.DeleteTag (5 handlers)
+[GIN-debug] GET    /api/v1/articles          --> gin-blog/routers/v1.GetArticles (5 handlers)
+[GIN-debug] GET    /api/v1/articles/:id      --> gin-blog/routers/v1.GetArticle (5 handlers)
+[GIN-debug] POST   /api/v1/articles          --> gin-blog/routers/v1.AddArticle (5 handlers)
+[GIN-debug] PUT    /api/v1/articles/:id      --> gin-blog/routers/v1.EditArticle (5 handlers)
+[GIN-debug] DELETE /api/v1/articles/:id      --> gin-blog/routers/v1.DeleteArticle (5 handlers)
+[GIN] 2020/06/17 - 15:16:36 | 200 |     275.638µs |       127.0.0.1 | GET      "/test"
+127.0.0.1 - [Wed, 17 Jun 2020 15:16:36 CST] "GET /test HTTP/1.1 200 2.07047ms "PostmanRuntime/7.6.0" "
+[GIN] 2020/06/17 - 15:16:38 | 200 |     103.039µs |       127.0.0.1 | GET      "/test"
+127.0.0.1 - [Wed, 17 Jun 2020 15:16:38 CST] "GET /test HTTP/1.1 200 184.824µs "PostmanRuntime/7.6.0" "
+[GIN] 2020/06/17 - 15:16:47 | 200 |      96.973µs |       127.0.0.1 | GET      "/test"
+127.0.0.1 - [Wed, 17 Jun 2020 15:16:48 CST] "GET /test HTTP/1.1 200 1.211233ms "PostmanRuntime/7.6.0" "
