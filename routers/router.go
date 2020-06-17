@@ -1,6 +1,7 @@
 package routers
 
 import (
+	"fmt"
 	"gin-blog/middleware/jwt"
 	"gin-blog/pkg/logging"
 	"gin-blog/pkg/setting"
@@ -9,6 +10,8 @@ import (
 	v1 "gin-blog/routers/v1"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"os"
+	"time"
 )
 
 func InitRouter() *gin.Engine {
@@ -17,23 +20,44 @@ func InitRouter() *gin.Engine {
 
 	r := gin.New()
 	//handleFile,_ := os.OpenFile(logging.AccessLog(),os.O_APPEND|os.O_CREATE|os.O_WRONLY,0644)
-	//file, _ := os.Create(logging.AccessLog())
-	//gin.DefaultWriter = file
-	//
-	//r.Use(gin.LoggerWithFormatter(func(param gin.LogFormatterParams) string {
-	//	//定制日志格式
-	//	return fmt.Sprintf("%s - [%s] \"%s %s %s %d %s \"%s\" %s\"\n",
-	//		param.ClientIP,
-	//		param.TimeStamp.Format(time.RFC1123),
-	//		param.Method,
-	//		param.Path,
-	//		param.Request.Proto,
-	//		param.StatusCode,
-	//		param.Latency,
-	//		param.Request.UserAgent(),
-	//		param.ErrorMessage,
-	//	)
-	//}))
+	file, _ := os.Create(logging.AccessLog())
+	gin.DefaultWriter = file
+	r.Use(func(c *gin.Context) {
+
+		//logging.WriteAccessLog(func(param gin.LogFormatterParams) string {
+		//	//定制日志格式
+		//	return fmt.Sprintf("%s - [%s] \"%s %s %s %d %s \"%s\" %s\"\n",
+		//		param.ClientIP,
+		//		param.TimeStamp.Format(time.RFC1123),
+		//		param.Method,
+		//		param.Path,
+		//		param.Request.Proto,
+		//		param.StatusCode,
+		//		param.Latency,
+		//		param.Request.UserAgent(),
+		//		param.ErrorMessage,
+		//	)
+		//})
+		file, _ := os.Create(logging.AccessLog())
+		gin.DefaultWriter = file
+		gin.LoggerWithFormatter(func(param gin.LogFormatterParams) string {
+			//定制日志格式
+			return fmt.Sprintf("%s - [%s] \"%s %s %s %d %s \"%s\" %s\"\n",
+				param.ClientIP,
+				param.TimeStamp.Format(time.RFC1123),
+				param.Method,
+				param.Path,
+				param.Request.Proto,
+				param.StatusCode,
+				param.Latency,
+				param.Request.UserAgent(),
+				param.ErrorMessage,
+			)
+		})
+		logging.Info(logging.AccessLog())
+
+		c.Next()
+	})
 
 	r.Use(gin.Logger())
 

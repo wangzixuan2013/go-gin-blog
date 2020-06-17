@@ -2,6 +2,7 @@ package logging
 
 import (
 	"fmt"
+	"gin-blog/pkg/file"
 	"log"
 	"os"
 	"path/filepath"
@@ -21,6 +22,8 @@ var (
 	levelFlags = []string{"DEBUG", "INFO", "WARN", "ERROR", "FATAL"}
 
 	//fileName = ""
+
+	//accessLogger *log.Logger
 )
 
 const (
@@ -42,6 +45,9 @@ func Setup()  {
 		log.Fatalln(err)
 	}
 	logger = log.New(F, DefaultPrefix, log.LstdFlags)
+
+	//初始化accessLog
+	//InitAccessLog()
 }
 
 func AccessLog() string  {
@@ -100,6 +106,35 @@ func setPrefix(level Level) {
 	}
 
 	logger.SetPrefix(logPrefix)
+}
+
+//func InitAccessLog()  {
+//	var err error
+//	fileFullPath := getAccessLog()
+//	_, err = os.Stat(fileFullPath)
+//	if err != nil{
+//
+//		F,err := file.Open(fileFullPath,os.O_APPEND|os.O_CREATE|os.O_WRONLY,0644)
+//		if err != nil {
+//			log.Fatalln(err)
+//		}
+//		accessLogger = log.New(F, DefaultPrefix, log.LstdFlags)
+//	}
+//}
+
+func WriteAccessLog(v ...interface{})  {
+	var err error
+	fileFullPath := getAccessLog()
+	_, err = os.Stat(fileFullPath)
+	if err != nil{
+
+		F,err := file.Open(fileFullPath,os.O_APPEND|os.O_CREATE|os.O_WRONLY,0644)
+		if err != nil {
+			log.Fatalln(err)
+		}
+		logger = log.New(F, DefaultPrefix, log.LstdFlags)
+	}
+	logger.Println(v)
 }
 
 
